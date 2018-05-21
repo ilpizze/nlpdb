@@ -16,11 +16,7 @@ import java.util.Map;
  */
 
 public class POSTagger {
-  private static final String TRAINING_WORDS_PATH = "src/main/resources/brown-words.txt";
-  private static final String TRAINING_TAGS_PATH = "src/main/resources/brown-tags.txt";
-  private static final int MAX_LINES = 10000;
-
-  private static final String INITIAL_TAG = "*";
+   private static final String INITIAL_TAG = "*";
   private static final int UNSEEN_SCORE = -100;
 
   private Map<String,Map<String,Double>> emissions = new HashMap<>();
@@ -82,39 +78,6 @@ public class POSTagger {
     }
   }
 
-  public List<PosTrainData> parseTrainingData() throws IOException {
-	  List<PosTrainData> trainingData = new LinkedList<>();
-
-    BufferedReader wordsIn = new BufferedReader(new FileReader(TRAINING_WORDS_PATH));
-    BufferedReader tagsIn = new BufferedReader(new FileReader(TRAINING_TAGS_PATH));
-
-    String wordLine, tagLine;
-    int n = 0;
-    while (n < MAX_LINES) {
-      wordLine = wordsIn.readLine();
-      tagLine = tagsIn.readLine();
-
-      if (wordLine == null || tagLine == null) {
-        break;
-      }
-
-      String[] words = wordLine.toLowerCase().split(" ");
-      String[] tags = tagLine.split(" ");
-
-      if (words.length != tags.length) {
-        continue;
-      }
-
-      trainingData.add(new PosTrainData(words, tags));
-      n++;
-    }
-
-    wordsIn.close();
-    tagsIn.close();
-
-    return trainingData;
-  }
-  
   public List<PosTrainData> parseItalianTrainingData() throws IOException {
 	  List<PosTrainData> trainingData = new LinkedList<>();
 
@@ -217,20 +180,13 @@ public class POSTagger {
   
   
   public static void main(String...args) throws IOException, InterruptedException {
-	  /*POSTagger tagger = new POSTagger();
+	
 	  
-	  List<PosTrainData> trainData = tagger.parseTrainingData();
-	  tagger.train(trainData);
-	  TaggingResult tag = tagger.tag("he is smoking");
-	  
-	  System.out.println(Arrays.toString(tag.words));
-	  System.out.println(Arrays.toString(tag.results));*/
-	  
-  POSTagger tagger2 = new POSTagger();
+	  POSTagger tagger2 = new POSTagger();
 	  
 	  List<PosTrainData> trainData2 = tagger2.parseItalianTrainingData();
 	  tagger2.train(trainData2);
-	  TaggingResult tag2 = tagger2.tag("la mail non è stata mangiata da leasing fpa".toLowerCase());
+	  TaggingResult tag2 = tagger2.tag("la mail non è stata mangiata da leasing spa".toLowerCase());
 	  
 	  System.gc();
 	  long usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
