@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import it.antonio.memorydb.util.LazyIterator;
+import it.antonio.util.LazyIterator;
 
 public interface ResultIterator {
 	Iterator<ObjectId> iterator();

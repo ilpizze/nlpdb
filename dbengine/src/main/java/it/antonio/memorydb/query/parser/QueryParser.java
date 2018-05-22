@@ -11,7 +11,7 @@ import it.antonio.memorydb.query.Eq;
 import it.antonio.memorydb.query.Greater;
 import it.antonio.memorydb.query.Lesser;
 import it.antonio.memorydb.query.Or;
-import it.antonio.memorydb.util.LazyIterator;
+import it.antonio.util.LazyIterator;
 
 public class QueryParser<T> {
 

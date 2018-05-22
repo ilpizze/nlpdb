@@ -1,4 +1,4 @@
-package it.antonio.memorydb.util;
+package it.antonio.util;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

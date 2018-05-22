@@ -12,7 +12,7 @@ public class MorphitLemmatizerTest {
 	public void testMorphit() {
 		Lemmatizer lemmatizer = MorphitLemmatizer.create();
 
-		Assert.assertEquals("guardare", lemmatizer.getLemma("guardami"));
+		Assert.assertEquals("guardare", lemmatizer.lemma("guardami"));
 
 		long usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 		System.out.printf("%.3fMB\n", usedMemory / (1024.0 * 1024.0));

@@ -1,5 +1,7 @@
 package it.antonio.textprocessing.lemma;
 
 public interface Lemmatizer {
-	String getLemma(String word);
+	String lemma(String word);
+
+	String[] lemmas(String[] tokens);
 }

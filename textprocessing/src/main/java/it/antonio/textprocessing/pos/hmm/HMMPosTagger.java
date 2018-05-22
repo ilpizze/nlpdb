@@ -2,7 +2,6 @@ package it.antonio.textprocessing.pos.hmm;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -95,8 +94,8 @@ public class HMMPosTagger implements PosTagger {
 	        for (String nextState : transitions.get(prevState).keySet()) {
 	          double score = previousScores.get(prevState) + transitions.get(prevState).get(nextState);
 
-	          if (emissions.get(nextState).containsKey(words[i])) {
-	            score += emissions.get(nextState).get(words[i]);
+	          if (emissions.get(nextState).containsKey(words[i].toLowerCase())) {
+	            score += emissions.get(nextState).get(words[i].toLowerCase());
 	          }else {
 	            score += UNSEEN_SCORE;
 	          }

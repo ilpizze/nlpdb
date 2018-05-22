@@ -19,9 +19,16 @@ public class MorphitLemmatizer implements Lemmatizer {
 	}
 
 	@Override
-	public String getLemma(String word) {
-		return lemmas.get(word);
+	public String lemma(String word) {
+		return lemmas.get(word.toLowerCase());
 	}
+	@Override
+	public String[] lemmas(String[] tokens) {
+		String[] lemmas = new String[tokens.length];
+		for(int i = 0; i < tokens.length; i++) lemmas[i] = lemma(tokens[i]);
+		return lemmas;
+	}
+	
 
 	public static MorphitLemmatizer create() {
 
@@ -48,5 +55,7 @@ public class MorphitLemmatizer implements Lemmatizer {
 			throw new IllegalArgumentException("Error reading morph it file", e);
 		}
 	}
+
+	
 
 }
