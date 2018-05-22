@@ -76,7 +76,7 @@ public class HMMPosTagger implements PosTagger {
 
 	  
 
-	  
+	  @Override
 	  public TaggingResult tag(String input) {
 	    String[] words = sanitizeInputs(input); // Need to add spaces before each comma, period question mark, etc.
 
