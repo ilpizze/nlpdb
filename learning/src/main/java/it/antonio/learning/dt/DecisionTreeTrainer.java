@@ -1,4 +1,4 @@
-package it.antonio.learning;
+package it.antonio.learning.dt;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import it.antonio.learning.DecisionTreeNode.FeatureDecisionTreeNode;
-import it.antonio.learning.DecisionTreeNode.LeafValueDecisionTreeNode;
-import it.antonio.learning.data.Data;
-import it.antonio.learning.data.DataSet;
+import it.antonio.learning.dt.DecisionTreeNode.FeatureDecisionTreeNode;
+import it.antonio.learning.dt.DecisionTreeNode.LeafValueDecisionTreeNode;
+import it.antonio.learning.dt.data.Data;
+import it.antonio.learning.dt.data.DataSet;
 
 public class DecisionTreeTrainer {
 	

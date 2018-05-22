@@ -1,10 +1,10 @@
-package it.antonio.learning;
+package it.antonio.learning.dt;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import it.antonio.learning.DecisionTree.DecisionTreeVisitor;
-import it.antonio.learning.data.Data;
+import it.antonio.learning.dt.DecisionTree.DecisionTreeVisitor;
+import it.antonio.learning.dt.data.Data;
 
 public interface DecisionTreeNode {
 	

@@ -1,4 +1,4 @@
-package it.antonio.learning;
+package it.antonio.learning.dt;
 
 public class DecisionTreeResult {
 	public double percentage;

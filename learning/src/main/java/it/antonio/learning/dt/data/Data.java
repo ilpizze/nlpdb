@@ -1,4 +1,4 @@
-package it.antonio.learning.data;
+package it.antonio.learning.dt.data;
 
 public interface Data {
 

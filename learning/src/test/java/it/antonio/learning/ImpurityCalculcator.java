@@ -1,10 +1,10 @@
 package it.antonio.learning;
 
-import static it.antonio.learning.ImpurityCalculator.*;
+import static it.antonio.learning.dt.ImpurityCalculator.*;
 
 import org.junit.Test;
 
-import it.antonio.learning.ImpurityCalculator;
+import it.antonio.learning.dt.ImpurityCalculator;
 
 public class ImpurityCalculcator implements ImpurityCalculator {
 
