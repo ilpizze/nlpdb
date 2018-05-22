@@ -1,4 +1,4 @@
-package it.antonio.nlp.pos;
+package it.antonio.textprocessing.pos;
 public class TaggingResult {
   public String[] words;
 
