@@ -77,9 +77,8 @@ public class HMMPosTagger implements PosTagger {
 	  
 
 	  @Override
-	  public TaggingResult tag(String input) {
-	    String[] words = sanitizeInputs(input); // Need to add spaces before each comma, period question mark, etc.
-
+	  public TaggingResult tag(String[] words) {
+	    
 	    Map<String, Double> previousScores = new HashMap<String, Double>();
 	    ArrayList<Map<String,String>> backtrace = new ArrayList<Map<String,String>>();
 	    previousScores.put(INITIAL_TAG, 0D);
@@ -132,18 +131,6 @@ public class HMMPosTagger implements PosTagger {
 	    return TaggingResult.of(words, results);
 	  }
 
-	  private static String[] sanitizeInputs(String input) {
-	    String[] punctuations = { "\\.", "\\?", "\\!", "\\,", "\\;", "\\:", "\\\"", "\\'", "\\(", "\\)" };
-
-	    for (String punctuation : punctuations) {
-	      input = input.replaceAll(punctuation, " " + punctuation + " ");
-	    }
-
-	    List<String> results = new ArrayList<String>(Arrays.asList(input.split(" ")));
-	    results.removeAll(Arrays.asList("", null));
-
-	    return results.toArray(new String[results.size()]);
-	  }
 	  
 	  
 	  public static void main(String...args) throws IOException, InterruptedException {

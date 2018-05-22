@@ -16,7 +16,7 @@ public class HMMPosTaggerTest {
 		List<HMMPosTrainData> trainData2 = HMMPosTrainData
 				.parse(HMMPosTrainData.class.getResourceAsStream("it-train.pos"));
 		tagger2.train(trainData2);
-		TaggingResult tag2 = tagger2.tag("la mail non è stata mangiata da leasing fpa".toLowerCase());
+		TaggingResult tag2 = tagger2.tag("la mail non è stata mangiata da leasing fpa".toLowerCase().split(" "));
 
 		// System.gc();
 		long usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
