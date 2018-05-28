@@ -1,12 +1,11 @@
 package it.antonio.learning.rf;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import it.antonio.learning.data.Data;
 import it.antonio.learning.dt.DecisionTree;
 import it.antonio.learning.dt.DecisionTreeResult;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.TreeSet;
 
 public class RandomForest {
 	private List<DecisionTree> trees = new LinkedList<>();
@@ -17,13 +16,18 @@ public class RandomForest {
 	}
 	
 	public DecisionTreeResult classify(Data data) {
-		TreeSet<DecisionTreeResult> set = new TreeSet<>((r1, r2) -> r1.percentage.compareTo(r2.percentage));
+		DecisionTreeResult lastRes = null;
 		
-		if(set.size() != trees.size()) {
-			throw new IllegalStateException();
+		for(DecisionTree tree: trees) {
+			DecisionTreeResult res = tree.classify(data);
+			
+			if(lastRes == null || res.percentage > lastRes.percentage) {
+				lastRes = res;
+			}
 		}
 		
-		return set.first();
+		
+		return lastRes;
 	}
 	
 }

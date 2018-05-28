@@ -71,7 +71,7 @@ public class DecisionTreeTrainerTest {
 		});
 		
 		
-		Assert.assertEquals(tree.classify(SimpleData.from("temp", "weather" , 30, "sunny")).value ,  "sud");
+		Assert.assertEquals(tree.classify(SimpleDataSet.from("temp", "weather" , 30, "sunny")).value ,  "sud");
 	}
 
 	

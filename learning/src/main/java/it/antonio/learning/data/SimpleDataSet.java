@@ -1,5 +1,6 @@
 package it.antonio.learning.data;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -25,8 +26,7 @@ public class SimpleDataSet implements DataSet {
 		dataSet.add(map);
 	}
 	
-	
-	
+		
 
 
 	@Override
@@ -38,4 +38,21 @@ public class SimpleDataSet implements DataSet {
 	public int size() {
 		return dataSet.size();
 	}
+	
+	public static SimpleData from(Object...values) {
+		Map<String, Object> map= new HashMap<>();
+		for(int i = 0; i < (values.length / 2); i++) {
+			map.put((String) values[i], values[i + values.length / 2]);
+		}
+		return new SimpleData(map);
+	}
+	
+	public static SimpleData fromHeaders(SimpleDataSet set, Object...values) {
+		Map<String, Object> map= new HashMap<>();
+		for(int i = 0; i < values.length; i++) {
+			map.put(set.header[i], values[i]);
+		}
+		return new SimpleData(map);
+	}
+
 }

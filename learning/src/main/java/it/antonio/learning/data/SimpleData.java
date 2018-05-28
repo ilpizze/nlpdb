@@ -21,12 +21,6 @@ public class SimpleData implements Data{
 		}
 		
 
-		public static SimpleData from(Object...values) {
-			Map<String, Object> map= new HashMap<>();
-			for(int i = 0; i < (values.length / 2); i++) {
-				map.put((String) values[i], values[i + values.length / 2]);
-			}
-			return new SimpleData(map);
-		}
+		
 		
 }
