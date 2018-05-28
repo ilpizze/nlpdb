@@ -7,15 +7,15 @@ import java.util.Random;
 import org.junit.Assert;
 import org.junit.Test;
 
+import it.antonio.learning.data.Data;
+import it.antonio.learning.data.SimpleData;
+import it.antonio.learning.data.SimpleDataSet;
 import it.antonio.learning.dt.DecisionTree;
 import it.antonio.learning.dt.DecisionTreeTrainer;
 import it.antonio.learning.dt.Feature;
 import it.antonio.learning.dt.DecisionTree.DecisionTreeVisitor;
 import it.antonio.learning.dt.DecisionTreeNode.FeatureDecisionTreeNode;
 import it.antonio.learning.dt.DecisionTreeNode.LeafValueDecisionTreeNode;
-import it.antonio.learning.dt.data.Data;
-import it.antonio.learning.dt.data.SimpleData;
-import it.antonio.learning.dt.data.SimpleDataSet;
 
 public class DecisionTreeTrainerTest {
 

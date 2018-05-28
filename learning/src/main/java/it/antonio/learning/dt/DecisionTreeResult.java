@@ -1,10 +1,10 @@
 package it.antonio.learning.dt;
 
 public class DecisionTreeResult {
-	public double percentage;
+	public Double percentage;
 	public Object value;
 	
-	public DecisionTreeResult(double percentage, Object value) {
+	public DecisionTreeResult(Double percentage, Object value) {
 		super();
 		this.percentage = percentage;
 		this.value = value;

@@ -1,8 +1,8 @@
 package it.antonio.learning.dt;
 
+import it.antonio.learning.data.Data;
 import it.antonio.learning.dt.DecisionTreeNode.FeatureDecisionTreeNode;
 import it.antonio.learning.dt.DecisionTreeNode.LeafValueDecisionTreeNode;
-import it.antonio.learning.dt.data.Data;
 
 public class DecisionTree {
 	private DecisionTreeNode root;

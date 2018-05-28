@@ -1,4 +1,4 @@
-package it.antonio.learning.dt.data;
+package it.antonio.learning.data;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;

@@ -2,7 +2,7 @@ package it.antonio.learning.dt;
 
 import java.util.function.Function;
 
-import it.antonio.learning.dt.data.Data;
+import it.antonio.learning.data.Data;
 
 
 public interface Feature<T> {

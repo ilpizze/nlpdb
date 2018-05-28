@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import it.antonio.learning.data.Data;
+import it.antonio.learning.data.DataSet;
 import it.antonio.learning.dt.DecisionTreeNode.FeatureDecisionTreeNode;
 import it.antonio.learning.dt.DecisionTreeNode.LeafValueDecisionTreeNode;
-import it.antonio.learning.dt.data.Data;
-import it.antonio.learning.dt.data.DataSet;
 
 public class DecisionTreeTrainer {
 	
@@ -104,41 +104,10 @@ public class DecisionTreeTrainer {
 			}
 		}
 		
-		/*
-		for(Count classification: classifications) {
-			
-			for(Feature<?> feature: features) {
-			
-				Collection<Count> featureClassification = count(feature, classification.rows);
-				
-				double entropy = ImpurityCalculator.calculateEntropy(classification.rows.size(), featureClassification.stream().map(c -> c.count).collect(Collectors.toList())  );
-				
-				if(entropy < bestEntropy) {
-					bestEntropy = entropy;
-					bestFeature = feature;
-					bestClassification = featureClassification;
-				}
-			
-			
-			}
-		}
-		*/
-		//return new BestSplit(bestFeature, null);
+		
 		return bestFeature;
 	}
 	
-	private class BestSplit {
-		private Feature<?> feature;
-		private Collection<Count> count;
-		
-		public BestSplit(Feature<?> feature, Collection<Count> count) {
-			super();
-			this.feature = feature;
-			this.count = count;
-		}
-		
-		
-	}
 	
 	
 	private Collection<Count> count(Feature<?> feature, Iterable<Data> data){
