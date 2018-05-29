@@ -8,6 +8,8 @@ import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.function.Consumer;
 
 public class Server {
@@ -28,9 +30,22 @@ public class Server {
 
 			@Override
 			public void completed(AsynchronousSocketChannel socketChannel, Void attachment) {
-				serverChannel.accept(null, this);
+				
+				
+					ByteBuffer buffer = ByteBuffer.allocate(32);
+			        Future<Integer> result = socketChannel.read(buffer);
+			        while (! result.isDone()) {
+			            // do nothing
+			        }
 
-				read(socketChannel);
+			        buffer.flip();
+			        String msg = new String(buffer.array()).trim();
+			        System.out.println("Message from client: " + msg);
+			        buffer.clear();
+				
+			        serverChannel.accept(null, this);
+
+				
 
 			}
 
@@ -41,7 +56,7 @@ public class Server {
 		});
 
 	}
-
+/*
 	private void read(AsynchronousSocketChannel socketChannel) {
 		final ByteBuffer buf = ByteBuffer.allocate(2048);
 
@@ -64,7 +79,7 @@ public class Server {
 				throw new RuntimeException(exc);
 			}
 		});
-	}
+	}*/
 
 	public static void main(String[] args) {
 		try {
@@ -100,7 +115,7 @@ public class Server {
 				});
 			});
 
-			Thread.sleep(1000);
+			Thread.sleep(10000);
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -3,4 +3,18 @@
   <groupId>it.antonio</groupId>
   <artifactId>core</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>
+		<dependency>
+			<groupId>it.antonio</groupId>
+			<artifactId>learning</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.antonio</groupId>
+			<artifactId>textprocessing</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>
