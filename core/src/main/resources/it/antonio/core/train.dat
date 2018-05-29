@@ -1,7 +1,9 @@
-quanti $1 ci sono $2
-quali $1 ci sono $2
-trova tutti i $1 che hanno $2
-conta i $1 che hanno $2
-estrai tutti i $1 con $2
-estrai tutti i $1 che sono $2
-trova i $1 che sono $2
+quanti mesi ci sono in un anno|count
+quanti $1 sono i $2|count
+quali $1 ci sono $2|find
+trova tutti i $1 che hanno $2|find
+conta i $1 che hanno $2|find
+estrai tutti i valori con valore uguale a 1|find
+estrai tutti i $1 che sono $2|find
+trova i $1 che sono $2|find
+$1 con $2|find
