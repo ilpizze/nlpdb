@@ -14,14 +14,14 @@ public class RandomForestTrainer {
 	
 	private DecisionTreeTrainer treeTrainer = new DecisionTreeTrainer();
 	
-	public RandomForest train(DataSet data, List<Feature<?>> features, Feature<?> classificationFeature, int size, double maxFeatures) {
+	public RandomForest train(DataSet data, List<Feature> features, Feature classificationFeature, int size, double maxFeatures) {
 		List<DecisionTree> trees = new LinkedList<>();
 		
 		
-		Predicate<? super Feature<?>> filter = f -> Math.random() > maxFeatures;
+		Predicate<? super Feature> filter = f -> Math.random() > maxFeatures;
 		
 		for(int i = 0; i < size; i++) {
-			List<Feature<?>> subFeatures = features.stream().filter(filter).collect(Collectors.toList());
+			List<Feature> subFeatures = features.stream().filter(filter).collect(Collectors.toList());
 			DecisionTree tree = treeTrainer.train(data, subFeatures, classificationFeature);
 			trees.add(tree);
 			

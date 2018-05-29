@@ -1,9 +1,11 @@
 quanti mesi ci sono in un anno|count
-quanti $1 sono i $2|count
-quali $1 ci sono $2|find
-trova tutti i $1 che hanno $2|find
-conta i $1 che hanno $2|find
+quali gatti sono rossi|find
+trova tutti gatti che hanno il pelo rosso|find
+conta i gatti che hanno il pelo rosso|find
 estrai tutti i valori con valore uguale a 1|find
-estrai tutti i $1 che sono $2|find
-trova i $1 che sono $2|find
-$1 con $2|find
+estrai tutti i valori che sono 1|find
+trova i valori che sono 1|find
+valori con valore 1|find
+il numero di oggetti che hanno x uguale a 1|count
+numero di carte che hanno l'asso|count
+tutte le persone di nome Antonio|find

@@ -26,7 +26,7 @@ public class SimpleTextPipeline implements TextPipeline{
 		TaggingResult posResult = posTagger.tag(tokens);
 		String[] lemmas = lemmatizer.lemmas(tokens);
 		
-		return new TextModel(tokens, posResult.results, lemmas);
+		return new TextModel(tokens, posResult.posTags, posResult.posTagsComplex, lemmas);
 	}
 	
 	

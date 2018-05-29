@@ -1,20 +1,26 @@
 package it.antonio.textprocessing.pipeline;
 
 import java.util.Iterator;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 import it.antonio.util.LazyIterator;
 
 public class TextModel implements Iterable<TextModelWord>{
 	public String[] tokens;
 	public String[] posTags;
+	public String[] posTagsComplex;
 	public String[] lemmas;
 	
-	public TextModel(String[] tokens, String[] posTags, String[] lemmas) {
+	
+	public TextModel(String[] tokens, String[] posTags, String[] posTagsComplex, String[] lemmas) {
 		super();
 		this.tokens = tokens;
 		this.posTags = posTags;
+		this.posTagsComplex = posTagsComplex;
 		this.lemmas = lemmas;
 	}
+
 
 	@Override
 	public Iterator<TextModelWord> iterator() {
@@ -31,6 +37,14 @@ public class TextModel implements Iterable<TextModelWord>{
 		};
 	}
 
+
+	public Stream<TextModelWord> stream() {
+		Iterable<TextModelWord> it = ()-> iterator();
+		return StreamSupport.stream(it .spliterator(), false);
+	}
+
+	
+	
 	
 	
 }

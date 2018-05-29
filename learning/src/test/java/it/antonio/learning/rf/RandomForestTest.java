@@ -20,7 +20,7 @@ public class RandomForestTest {
 		
 		int size = 30;
 		String[] headers = new String[size + 1];
-		List<Feature<?>> features = new LinkedList<>();
+		List<Feature> features = new LinkedList<>();
 		for(int i = 0; i < size; i++) {
 			String h = "h" + i;
 			headers[i] = h;
@@ -28,7 +28,7 @@ public class RandomForestTest {
 		}
 		
 		headers[size] = "res"; 
-		Feature<?> cf = Feature.withName("res", r -> r.getValue("res"));
+		Feature cf = Feature.withName("res", r -> r.getValue("res"));
 		
 		
 		SimpleDataSet dataset = new SimpleDataSet(headers);

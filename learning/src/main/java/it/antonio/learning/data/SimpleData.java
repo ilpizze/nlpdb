@@ -1,6 +1,5 @@
 package it.antonio.learning.data;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class SimpleData implements Data{
@@ -11,8 +10,9 @@ public class SimpleData implements Data{
 			this.row = row;
 		}
 
-		public Object getValue(String header) {
-			return row.get(header);
+		@SuppressWarnings("unchecked")
+		public <T> T getValue(String header) {
+			return (T) row.get(header);
 		}
 		
 		@Override

@@ -23,7 +23,7 @@ public class HMMPosTaggerTest {
 		System.out.printf("%.3fMB\n", usedMemory / (1024.0 * 1024.0));
 
 		System.out.println(Arrays.toString(tag2.words));
-		System.out.println(Arrays.toString(tag2.results));
+		System.out.println(Arrays.toString(tag2.posTagsComplex));
 	}
 
 }

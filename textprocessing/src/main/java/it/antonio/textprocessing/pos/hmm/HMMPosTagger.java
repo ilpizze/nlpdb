@@ -126,24 +126,19 @@ public class HMMPosTagger implements PosTagger {
 	      results[i] = curr;
 	      curr = backtrace.get(i).get(curr);
 	    }
-
-	    return TaggingResult.of(words, results);
+	    
+	    String[] simpleResults = simplify(results);
+	    return TaggingResult.of(words, results, simpleResults);
 	  }
 
 	  
 	  
-	  public static void main(String...args) throws IOException, InterruptedException {
-		  /*POSTagger tagger = new POSTagger();
-		  
-		  List<PosTrainData> trainData = tagger.parseTrainingData();
-		  tagger.train(trainData);
-		  TaggingResult tag = tagger.tag("he is smoking");
-		  
-		  System.out.println(Arrays.toString(tag.words));
-		  System.out.println(Arrays.toString(tag.results));*/
-		  
-		 
-		  
-		  
-	  }
+	  private String[] simplify(String[] results) {
+		  String[] simples = new String[results.length];
+		  for(int i = 0; i < results.length; i++) {
+			  simples[i] = results[i] != null ? results[i].substring(0, 1).toUpperCase() : null;
+		  }
+		  return simples;
+	}
+
 }

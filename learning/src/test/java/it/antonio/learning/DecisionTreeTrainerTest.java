@@ -44,11 +44,11 @@ public class DecisionTreeTrainerTest {
 				
 		}
 		
-		List<Feature<?>> features = new LinkedList<>();
+		List<Feature> features = new LinkedList<>();
 		features.add(Feature.withName("temperature", (row) -> ((Integer) row.getValue("temp")) > 20   ) ); 
 		features.add(Feature.withName("sunny", (row) -> row.getValue("weather") ) ); 
 		
-		Feature<?> classification = Feature.withName("loc", (row) -> row.getValue("loc") );
+		Feature classification = Feature.withName("loc", (row) -> row.getValue("loc") );
 		
 		
 		DecisionTree tree = trainer.train(data, features, classification);

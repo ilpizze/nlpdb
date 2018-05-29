@@ -2,6 +2,6 @@ package it.antonio.learning.data;
 
 public interface Data {
 
-	Object getValue(String header);
+	<T> T getValue(String header);
 
 }

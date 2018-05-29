@@ -5,16 +5,16 @@ import java.util.function.Function;
 import it.antonio.learning.data.Data;
 
 
-public interface Feature<T> {
-	T calculate(Data row);
+public interface Feature {
+	Object calculate(Data row);
 	String name();
 	
 	
-	public static <T> Feature<T> withName(String name, Function<Data, T> f){
-		return new Feature<T>() {
+	public static Feature withName(String name, Function<Data, Object> f){
+		return new Feature() {
 
 			@Override
-			public T calculate(Data row) {
+			public Object calculate(Data row) {
 				return f.apply(row);
 			}
 

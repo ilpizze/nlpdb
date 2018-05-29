@@ -15,7 +15,7 @@ import it.antonio.learning.dt.DecisionTreeNode.LeafValueDecisionTreeNode;
 
 public class DecisionTreeTrainer {
 	
-	public DecisionTree train(DataSet data, List<Feature<?>> features, Feature<?> classificationFeature) {
+	public DecisionTree train(DataSet data, List<Feature> features, Feature classificationFeature) {
 		
 		
 		DecisionTreeNode root = growTree(new DataSetCollection(data), features, classificationFeature);
@@ -25,7 +25,7 @@ public class DecisionTreeTrainer {
 	}
 	
 	
-	private DecisionTreeNode growTree(Collection<Data> rows,  List<Feature<?>> features, Feature<?> classificationFeature) {
+	private DecisionTreeNode growTree(Collection<Data> rows,  List<Feature> features, Feature classificationFeature) {
 		
 		Collection<Count> classification = count(classificationFeature, rows);
 		
@@ -46,7 +46,7 @@ public class DecisionTreeTrainer {
 			// FEATURE
 			
 			
-			Feature<?> bestFeature = findBestSplit(features, classification);
+			Feature bestFeature = findBestSplit(features, classification);
 			Collection<Count> bestClassification = count(bestFeature, rows);
 			
 			FeatureDecisionTreeNode node = new DecisionTreeNode.FeatureDecisionTreeNode(bestFeature);
@@ -58,7 +58,7 @@ public class DecisionTreeTrainer {
 				
 				
 			} else {
-				List<Feature<?>> filteredFeatures = features.stream().filter(f -> f != bestFeature).collect(Collectors.toList()); 
+				List<Feature> filteredFeatures = features.stream().filter(f -> f != bestFeature).collect(Collectors.toList()); 
 				
 				for(Count bestCount: bestClassification) {
 					DecisionTreeNode childNode = growTree(bestCount.rows, filteredFeatures, classificationFeature);
@@ -76,7 +76,7 @@ public class DecisionTreeTrainer {
 		
 	
 	}
-	private DecisionTreeResult getClassificationValue(Collection<Data> rows, Feature<?> classificationFeature) {
+	private DecisionTreeResult getClassificationValue(Collection<Data> rows, Feature classificationFeature) {
 		Collection<Count> count = count(classificationFeature, rows);
 		Count bestCount = count.stream().max((c1, c2) -> c1.count.compareTo(c2.count)).get();
 		
@@ -84,11 +84,11 @@ public class DecisionTreeTrainer {
 	}
 
 
-	private Feature<?> findBestSplit(List<Feature<?>> features, Collection<Count> classifications){
+	private Feature findBestSplit(List<Feature> features, Collection<Count> classifications){
 		double bestEntropy = Integer.MAX_VALUE;
-		Feature<?> bestFeature = null;
+		Feature bestFeature = null;
 		
-		for(Feature<?> feature: features) {
+		for(Feature feature: features) {
 			double entropy = 0;
 			
 			for(Count classification: classifications) {
@@ -110,7 +110,7 @@ public class DecisionTreeTrainer {
 	
 	
 	
-	private Collection<Count> count(Feature<?> feature, Iterable<Data> data){
+	private Collection<Count> count(Feature feature, Iterable<Data> data){
 		
 		Map<Object, Count> countMap = new HashMap<>();
 		for(Data row: data) {

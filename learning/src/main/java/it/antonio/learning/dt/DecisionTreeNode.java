@@ -13,10 +13,10 @@ public interface DecisionTreeNode {
 
 	public static class FeatureDecisionTreeNode implements DecisionTreeNode {
 		
-		public Feature<?> feature;
+		public Feature feature;
 		public Map<Object, DecisionTreeNode> children = new HashMap<>();
 
-		public FeatureDecisionTreeNode(Feature<?> feature) {
+		public FeatureDecisionTreeNode(Feature feature) {
 			super();
 			this.feature = feature;
 		}
@@ -30,7 +30,7 @@ public interface DecisionTreeNode {
 			if(children.containsKey(obj)) {
 				return children.get(obj).classify(data);
 			} else {
-				return null;	
+				return new DecisionTreeResult(0d, null);	
 			}
 			
 		}
